@@ -26,9 +26,11 @@ const db = mysql.createConnection(
 
 
 
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+})
 
-
-// default response for any other request (not found) ** must be last route in script placement
+// catchall route. default response for any other request (not found) ** must be last route in script placement
 app.use((req, res) => {
     res.status(404).end();
 });
