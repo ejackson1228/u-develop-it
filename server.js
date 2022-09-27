@@ -102,6 +102,7 @@ app.delete('/api/candidates/:id', (req, res) => {
             res.json({
                 message: 'Candidate not found.' // let the user know that the candidate does not exist
             });
+            return;
         } else {
             res.json({
                 message: 'Deleted',
