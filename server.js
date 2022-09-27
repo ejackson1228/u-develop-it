@@ -54,7 +54,12 @@ app.post('/api/candidate', ({ body }, res) => { //req is an object being destruc
 
 // get all candidates
 app.get('/api/candidates', (req, res) => {
-    const sql = `SELECT * FROM candidates`;
+    const sql = 
+    `SELECT candidates.*, parties.party_name 
+    AS party_name 
+    FROM candidates 
+    LEFT JOIN parties 
+    ON candidates.party_id = parties.id`;
 
     db.query(sql, (err, rows) => {
         if (err) {
@@ -71,7 +76,14 @@ app.get('/api/candidates', (req, res) => {
 
 // get a single candidate by id
 app.get('/api/candidates/:id', (req, res) => {
-    const sql = `SELECT * FROM candidates WHERE id = ?`;
+    const sql = 
+    `SELECT candidates.*, parties.party_name 
+    AS party_name 
+    FROM candidates 
+    LEFT JOIN parties 
+    ON candidates.party_id = parties.id 
+    WHERE candidates.id = ?`;
+
     const params = [req.params.id];
 
     db.query(sql, params, (err, row) => {
