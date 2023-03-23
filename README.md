@@ -32,6 +32,7 @@ Track an election's progress, candidates, candidate information, and votes.
 ## Contributors
 - node.js (https://nodejs.org/en)
 - mySQL (https://www.mysql.com/)  
+- mySQL2 (https://www.npmjs.com/package/mysql2)
 - express.js (https://expressjs.com/)
 - jest (https://jestjs.io/)
 
